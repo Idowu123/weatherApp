@@ -21,7 +21,8 @@
 				<h1>MyWeatherApp</h1>
 				<p>This App lets you check the weather condition for a particular location.You can click on the map or enter the location</p>
 			</header>	
-			<div id="report" class= "group">				
+			<div id="report" class= "group">
+
 				<div id="weather" class= "group" ng-model="MapCtrl.loading">
 					<div class="loading" ng-show="loading">
 						<img src="img/preloadr.GIF">
@@ -40,19 +41,20 @@
 					<input type="text" id="search" ng-model="address" placeholder="Location"/>
 					<input type="submit" id="searchsubmit" value="Enter">
 				</form>
+
 			</div>
 
 
-			<div id="my_map"  ng-model="MapCtrl.loading">
+			<div id="my_map"  class="group" ng-model="MapCtrl.loading">
 				<div class="load" ng-show="loading">
 					<img src="img/preloadr.GIF">
 				</div>
-				<!-- <div id="map-canvas" class= "group" ui-event="{'map-click':'clickMap()'}"></div> -->
 				<google-map  center="map.center" zoom="map.zoom" events="map.events" ng-show="!loading" class= "group" >
 					<markers models="map.markers" coords="'self'" icon="'icon'" click="'onClicked'">
         			</markers>
 				</google-map>
-				<div class="mycity"><p>{{serviceWeather.city}},{{serviceWeather.country}}</p></div>
+				
+				<div class="mycity" class="group"><p>{{serviceWeather.city}},{{serviceWeather.country}}</p></div>
 			</div>
 		</div>
 	</body>

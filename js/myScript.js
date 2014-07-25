@@ -4,43 +4,43 @@
     app.service('weatherService', function($http, $rootScope) {
         return { 
             getWeather: function(weatherLocation) {
-            $rootScope.serviceWeather = { temp: {}, clouds: null };
-            $.simpleWeather({
-            location: weatherLocation,
-            unit: 'f',
-            woeid: 'woeid',
-            success: function(weather) {
-                $rootScope.serviceWeather.temp = weather.alt.temp;
-                $rootScope.serviceWeather.city = weather.city;
-                $rootScope.serviceWeather.country = weather.country;
-                $rootScope.serviceWeather.icon = weather.code;
-                $rootScope.serviceWeather.currently = weather.currently;
-                $rootScope.serviceWeather.alttemp = weather.temp;
-                $rootScope.serviceWeather.tempunit  = weather.units.temp;
+                $rootScope.serviceWeather = { temp: {}, clouds: null };
+                $.simpleWeather({
+                    location: weatherLocation,
+                    unit: 'f',
+                    woeid: 'woeid',
+                    success: function(weather) {
+                        $rootScope.serviceWeather.temp = weather.alt.temp;
+                        $rootScope.serviceWeather.city = weather.city;
+                        $rootScope.serviceWeather.country = weather.country;
+                        $rootScope.serviceWeather.icon = weather.code;
+                        $rootScope.serviceWeather.currently = weather.currently;
+                        $rootScope.serviceWeather.alttemp = weather.temp;
+                        $rootScope.serviceWeather.tempunit  = weather.units.temp;
 
-                if($rootScope.serviceWeather.temp.current === 17){
-                  $("#weather").css("background-color","lightblue");
-                }
-                else if($rootScope.serviceWeather.temp.current > 23){
-                  $("#weather").css("background-color","lightblue");
-                }
-                else if($rootScope.serviceWeather.temp.current < 23 ){
-                  $("#weather").css("background-color","yellow");
-                }
+                        if($rootScope.serviceWeather.temp.current === 17){
+                          $("#weather").css("background-color","lightblue");
+                        }
+                        else if($rootScope.serviceWeather.temp.current > 23){
+                          $("#weather").css("background-color","lightblue");
+                        }
+                        else if($rootScope.serviceWeather.temp.current < 23 ){
+                          $("#weather").css("background-color","yellow");
+                        }
 
-                $rootScope.$apply(function(){
+                        $rootScope.$apply(function(){
+                        });
+                    
+                    }
                 });
             
-            }
-        });
-            
-        },
+            },
 
-        config: {
-            geocoder: new google.maps.Geocoder(),
-            infowindow : new google.maps.InfoWindow
-          
-        } 
+            config: {
+                geocoder: new google.maps.Geocoder(),
+                infowindow : new google.maps.InfoWindow
+              
+            } 
         }
     });
 
@@ -48,15 +48,17 @@
 
         // google.maps.visualRefresh = true;
         $scope.loading = true;
-        
-        console.log("before temperature: ", $scope.loading);
-        $scope.map = {
-            center: {
+        $scope.map = 
+        {
+            center: 
+            {
                 latitude: 45,
                 longitude: -73
             },
+            
             zoom: 8,
-            markers: [{
+            markers: 
+            [{
                 id: 1,
                 latitude: 45,
                 longitude: -73,
@@ -64,7 +66,9 @@
                 title: "haha"
 
             }],
-            events: {
+           
+            events:
+            {
                 click: function (mapModel, eventName, originalEventArgs) {
                   // 'this' is the directive's scope
                   console.log("click map event fired!");
@@ -75,13 +79,12 @@
                   // $scope.$apply();
                 }
             }
-
-
         };
 
         if(navigator.geolocation)
         {
-            navigator.geolocation.getCurrentPosition(function(position) {
+            navigator.geolocation.getCurrentPosition(function(position) 
+            {
                 var pos = new google.maps.LatLng(position.coords.latitude,
                                            position.coords.longitude);
                 // $scope.map.center = pos;
@@ -91,9 +94,7 @@
                 $scope.$apply(function(){
                     $scope.loading = !$scope.loading;
                 });
-
-                console.log("inside temperature: ", $scope.loading);
-                console.log($scope.map);
+               
                 $scope.map.markers  = [
                                         {
                                           id: 1,
@@ -104,6 +105,7 @@
                                         }];
                 
                 $scope.map.center = {
+                    
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                 };

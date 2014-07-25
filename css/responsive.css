@@ -1,16 +1,17 @@
 
 /*for phones*/
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 900px) {
+
 	header p{
 		font-size: 12px;
 	}
-	/*#myreport, #mymap{
-		width: 50%;
-		height: 50%;
 
-	}*/
 	header h1{
 		font-size: 20px;
+	}
+
+	#all{
+		margin:2%;
 	}
 
 	#weather h2{
@@ -21,41 +22,66 @@
 	#weather li{
 		padding: 10px;
 	}
-	#report, .angular-google-map-container{
 	
+	.load{
+		width: 96%;
+		height:220px;
+		padding: 50px 10px;
+		border: 1px solid black;
+		border-radius: 10px;
 	}
+
 	#report{
 		position: absolute;
-		top: 200px;
+		top: 550px;
+		width: 90%;
+		overflow: hidden;
+	
 	}
 
+	
 	.angular-google-map-container{
-		position: absolute;
-		top: 0px;
-		width: 100%;
-		height: 60px;
+		width: 96%;
+		margin: 0 auto;
 	}
 
-	.load img, .loading img{
-		width: 20%;
-		position: absolute;
+	#weather .currently {
+  		margin: 0 20px;
 	}
+
+	#weather li{
+		display: inline-block;
+		
+	}
+	
+	#weather {
+  		padding: 50px 10px 10px 10px;
+  	}
+	
 	.mycity{
-		width: 100%;
+		width: 80%;
+		position: absolute;
+		top: 480px;
+		left: 10%;
+		right: 10%;
+		clear: both;
+
 	}
-	#searchform input[type="text"]{
-		display: inline-block;
+
+	#search{
+		width: 80%;
+		
 	}
-	input[type="submit"]{
+
+	input{
 		display: inline-block;
 	}
 
+	#searchsubmit{
+		width: 80%;
+		display: none;
+	}
+
 }
-@media screen and (min-width: 480px) {
-	/*/*.angular-google-map-container{float: left;}*/
-	/*#report{
-   float: right;
-   width: 45%;
-	}*/*/
-}
+
 
