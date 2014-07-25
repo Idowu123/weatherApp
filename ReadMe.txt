@@ -1,0 +1,1 @@
+this app is a modified version of myWeatherApp. it was modified using angular js.
