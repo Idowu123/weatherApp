@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myWeather">
+	<head>
+		<title>MyWeatherApp</title>
+		<meta charset="utf-8" lang="en">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/responsive.css">
+		<script src="js/angular.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+    	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+    	<script src="js/google.js" type="text/javascript"></script>
+    	<script src="js/lodash.js"></script>
+    	<script src="js/angular-google-maps.js"></script>
+    	<script src="js/myScript.js" type="text/javascript"></script>
+	</head>
+	<body ng-controller="mapController as MapCtrl">
+		<div id="all">
+			<header>
+				<h1>MyWeatherApp</h1>
+				<p>This App lets you check the weather condition for a particular location.You can click on the map or enter the location</p>
+			</header>	
+			<div id="report" class= "group">
+
+				<div id="weather" class= "group" ng-model="MapCtrl.loading">
+					<div class="loading" ng-show="loading">
+						<img src="img/preloadr.GIF">
+					</div>
+					<div ng-show="!loading">
+	        			<h2><i class="icon-"></i>{{serviceWeather.temp}}&deg;C</h2>
+	        			<ul>
+	        				<li class="currently">{{serviceWeather.currently}}</li>
+	        				<li>{{serviceWeather.alttemp}}&deg;{{serviceWeather.tempunit}}</li>
+	     				</ul>
+	     			</div>			
+				</div>
+
+
+				<form id="searchForm" ng-submit="MapCtrl.submit()">
+					<input type="text" id="search" ng-model="address" placeholder="Location"/>
+					<input type="submit" id="searchsubmit" value="Enter">
+				</form>
+
+			</div>
+
+
+			<div id="my_map"  class="group" ng-model="MapCtrl.loading">
+				<div class="load" ng-show="loading">
+					<img src="img/preloadr.GIF">
+				</div>
+				<google-map  center="map.center" zoom="map.zoom" events="map.events" ng-show="!loading" class= "group" >
+					<markers models="map.markers" coords="'self'" icon="'icon'" click="'onClicked'">
+        			</markers>
+				</google-map>
+				
+				<div class="mycity" class="group"><p>{{serviceWeather.city}},{{serviceWeather.country}}</p></div>
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,87 @@
+
+/*for phones*/
+@media screen and (max-width: 900px) {
+
+	header p{
+		font-size: 12px;
+	}
+
+	header h1{
+		font-size: 20px;
+	}
+
+	#all{
+		margin:2%;
+	}
+
+	#weather h2{
+		font-size: 70px;
+		margin-top: -70px;
+	}
+
+	#weather li{
+		padding: 10px;
+	}
+	
+	.load{
+		width: 96%;
+		height:220px;
+		padding: 50px 10px;
+		border: 1px solid black;
+		border-radius: 10px;
+	}
+
+	#report{
+		position: absolute;
+		top: 550px;
+		width: 90%;
+		overflow: hidden;
+	
+	}
+
+	
+	.angular-google-map-container{
+		width: 96%;
+		margin: 0 auto;
+	}
+
+	#weather .currently {
+  		margin: 0 20px;
+	}
+
+	#weather li{
+		display: inline-block;
+		
+	}
+	
+	#weather {
+  		padding: 50px 10px 10px 10px;
+  	}
+	
+	.mycity{
+		width: 80%;
+		position: absolute;
+		top: 480px;
+		left: 10%;
+		right: 10%;
+		clear: both;
+
+	}
+
+	#search{
+		width: 80%;
+		
+	}
+
+	input{
+		display: inline-block;
+	}
+
+	#searchsubmit{
+		width: 80%;
+		display: none;
+	}
+
+}
+
+
